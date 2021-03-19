@@ -1,10 +1,26 @@
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+//import NavBar from "./components/NavBar";
+//import Home from "./pages/home/Home";
+import Login from "./components/Login";
+import Register from "./components/Register";
+const routes = [
+  { path: "/", component: Login },
+  { path: "/register", component: Register },
+  //{ path: "/home", component: Home }
+]
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-red-900">YEET</h1>
-    </div>
+    <Router>
+      {/* <NavBar /> */}
+      {
+        routes.map(({ path, component }) =>
+          <Route exact path={path} component={component} />
+        )
+      }
+    </Router>
   );
 }
 

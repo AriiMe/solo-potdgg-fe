@@ -1,38 +1,14 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* IE9 Compat Modes */
+  src: local('VT323'), local('VT323'),
+      url('https://fonts.googleapis.com/css2?family=VT323&display=swap') format('embedded-opentype'), /* IE6-IE8 */
+       url('https://fonts.googleapis.com/css2?family=VT323&display=swap') format('woff2'), /* Super Modern Browsers */
+       url('https://fonts.googleapis.com/css2?family=VT323&display=swap') format('woff'), /* Modern Browsers */
+       url('https://fonts.googleapis.com/css2?family=VT323&display=swap') format('truetype'), /* Safari, Android, iOS */
+       url('https://fonts.googleapis.com/css2?family=VT323&display=swap') format('svg'); /* Legacy iOS */
 }
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
