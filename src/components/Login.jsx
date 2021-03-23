@@ -7,19 +7,16 @@ import "./Login.css";
 import clip from "./bgVideo/videoplayback.mp4";
 import logo from "../logo/B.png";
 export default function Login(props) {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [img, setImg] = useState("");
 
   const loginFetch = async (e) => {
-    e.preventDefault();
     try {
       let response = await fetch(
         "https://potd-lol.herokuapp.com/potd/users/login",
         {
           method: "POST",
-          body: JSON.stringify({ email: email, password: password }),
+          body: JSON.stringify({ username: username, password: password }),
           headers: {
             "Content-Type": "application/json",
           },
@@ -67,11 +64,11 @@ export default function Login(props) {
                 <Form.Control
                   id="login"
                   className="w-full "
-                  type="email"
-                  placeholder="Email Addresss"
-                  value={email}
+                  type="username"
+                  placeholder="Username"
+                  value={username}
                   required
-                  onChange={(e) => setEmail(e.currentTarget.value)}
+                  onChange={(e) => setUsername(e.currentTarget.value)}
                 />
               </Form.Group>
               <Form.Group>
