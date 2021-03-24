@@ -66,7 +66,7 @@ export default class SinglePost extends React.Component {
   fetchLikes = async () => {
     try {
       const result = await fetch(
-        `https://potd-lol.herokuapp.com/potd/like/${this.props.me.id}/${this.props.post.id}/posts`,
+        `https://potd-lol.herokuapp.com/potd/like/${this.props.me.id}/${this.props.post.id}/likes`,
         {
           credentials: "include",
         }

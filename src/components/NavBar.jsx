@@ -11,7 +11,12 @@ import {
 } from "react-bootstrap";
 import { withRouter, Link } from "react-router-dom";
 import { IconContext } from "react-icons";
-import { GiSmallFire, GiCloudUpload } from "react-icons/gi";
+import {
+  GiSmallFire,
+  GiCloudUpload,
+  GiCometSpark,
+  GiAbstract038,
+} from "react-icons/gi";
 import { FaSearch, FaBell, FaUserCircle } from "react-icons/fa";
 import { RiMessage2Fill } from "react-icons/ri";
 import "./styles/NavBar.css";
@@ -20,6 +25,7 @@ import coin from "../logo/B.png";
 class AppNavBar extends React.Component {
   state = {
     me: {},
+    isMobile: window.innerWidth < 564,
   };
   fetchMe = async () => {
     try {
@@ -41,7 +47,10 @@ class AppNavBar extends React.Component {
   }
   render() {
     return (
-      <Navbar bg="dark" variant="dark" className="py-0 fixed-top">
+      <Navbar
+        id="nav3"
+        className={`py-0 fixed-${this.state.isMobile ? "bottom" : "top"}`}
+      >
         <div className="navbarContent">
           <Navbar.Brand
             onClick={() => this.props.history.push("/home")}
@@ -49,6 +58,30 @@ class AppNavBar extends React.Component {
           >
             <img id="logoboye" src={logo} />
           </Navbar.Brand>
+          <Nav.Link className={`navLinkCol ml-${this.state.isMobile ? "1" : "5"}`}>
+            <Col className="navCol">
+              <GiSmallFire className="navIcon1" />
+              <span id="navtext1" className="navIconText">
+                Hot Posts
+              </span>
+            </Col>
+          </Nav.Link>
+          <Nav.Link className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}>
+            <Col className="navCol">
+              <GiCometSpark className="navIcon1" />
+              <span id="navtext1" className="navIconText">
+                Trending
+              </span>
+            </Col>
+          </Nav.Link>
+          <Nav.Link className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}>
+            <Col className="navCol">
+              <GiAbstract038 className="navIcon1" />
+              <span id="navtext1" className="navIconText">
+                Pics
+              </span>
+            </Col>
+          </Nav.Link>
 
           {/* <Form inline className="navSearch">
             <InputGroup>
@@ -92,38 +125,33 @@ class AppNavBar extends React.Component {
                 ></img>
               </Col>
             </Nav.Link>
-            <Nav.Link clas sName="navLinkCol">
+            {this.state.isMobile ? "bottom" : <Nav.Link clas sName="navLinkCol" as={Link} to="/upload">
               <Col className="navCol">
                 <GiCloudUpload className="navIcon" />
                 <span style={{ marginBottom: "13px" }} className="navIconText">
                   Upload
                 </span>
               </Col>
-            </Nav.Link>
-            <Nav.Link className="navLinkCol">
-              <Col className="navCol">
-                <GiSmallFire className="navIcon" />
-                <span className="navIconText">Hot Posts</span>
-              </Col>
-            </Nav.Link>
-            <div className="vl"></div>
+            </Nav.Link>}
+            
             <Nav.Link className="navLinkCol">
               <Col className="navCol">
                 <FaBell className="navIcon" />
                 <span className="navIconText">Notifications</span>
               </Col>
             </Nav.Link>
+
+            {/* <div className="vl"></div> */}
             <Nav.Link className="navLinkCol" as={Link} to="/users/me">
               <Col className="navCol">
                 <img
                   style={{
-                    height: "25px",
+                    height: "40px",
                     borderRadius: "100px",
                   }}
                   src={this.state.me.imgurl}
                   className="navIcon"
                 ></img>
-                <span className="navIconText">You</span>
               </Col>
             </Nav.Link>
           </div>

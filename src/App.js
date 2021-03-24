@@ -5,10 +5,12 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Upload from "./components/Upload";
 const routes = [
   { path: "/", component: Login },
   { path: "/register", component: Register },
-  { path: "/home", component: Home }
+  { path: "/home", component: Home },
+  { path: "/upload", component: Upload }
 ]
 const exclusionArray = [
   '/',
