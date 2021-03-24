@@ -1,7 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-
-//import NavBar from "./components/NavBar";
+import { withRouter, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -10,18 +10,22 @@ const routes = [
   { path: "/register", component: Register },
   { path: "/home", component: Home }
 ]
+const exclusionArray = [
+  '/',
+  '/register',
+]
 
-function App() {
+function App({ location }) {
   return (
-    <Router>
-      {/* <NavBar /> */}
+    <>
+      { exclusionArray.indexOf(location.pathname) < 0 && <NavBar />}
       {
         routes.map(({ path, component }) =>
           <Route exact path={path} component={component} />
         )
       }
-    </Router>
+    </>
   );
 }
 
-export default App;
+export default withRouter(App);

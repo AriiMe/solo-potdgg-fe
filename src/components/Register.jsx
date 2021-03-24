@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import { withRouter } from "react-router-dom";
-import "./Login.css";
-import clip from "./bgVideo/videoplayback.mp4";
+import "./styles/Login.css";
 import logo from "../logo/potd.gif";
 import monke from "../logo/monke.jpg";
 function Register(props) {
@@ -64,12 +63,7 @@ function Register(props) {
   return (
     <>
       <div class="video-background">
-        <div class="video-foreground">
-          <video autoPlay loop muted>
-            <source src={clip} type="video/mp4" />
-            <source src={clip} type="video/ogg" />
-          </video>
-        </div>
+        <div class="video-foreground"></div>
       </div>
 
       <div className="container mx-auto p-52 text-center text-4xl">

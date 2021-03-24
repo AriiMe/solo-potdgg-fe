@@ -1,7 +1,9 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
-import "./Home.css";
+import "./styles/Home.css";
 
 export default class Home extends Component {
   state = {
@@ -14,14 +16,11 @@ export default class Home extends Component {
     loading: true,
   };
   fetchPost = async () => {
-    console.log("Bearer " + localStorage.getItem("token"));
     try {
       const response = await fetch(
         "https://potd-lol.herokuapp.com/potd/posts",
         {
-          headers: {
-            authorization: "Bearer " + localStorage.getItem("token"),
-          },
+          credentials: "include",
         }
       );
       if (response.ok) {
@@ -42,9 +41,7 @@ export default class Home extends Component {
   };
   fecthLikes = async () => {
     try {
-      const result = await fetch(
-        "https://potd-lol.herokuapp.com/potd/like"
-      );
+      const result = await fetch("https://potd-lol.herokuapp.com/potd/like");
     } catch (e) {}
   };
   fetchMe = async () => {
@@ -52,9 +49,7 @@ export default class Home extends Component {
       const meFetch = await fetch(
         "https://potd-lol.herokuapp.com/potd/users/me",
         {
-          headers: {
-            authorization: "Bearer " + localStorage.getItem("token"),
-          },
+          credentials: "include",
         }
       );
       const meResponse = await meFetch.json();
@@ -74,24 +69,24 @@ export default class Home extends Component {
       : console.log(" ");
     return (
       <div className="homeDiv">
+        <h1>g'day Cunt</h1>
         <Container className="HomeCont">
           {this.state.err && (
             <Alert variant="danger">{this.state.errMsg}</Alert>
           )}
-          {
-            this.state.loading && this.state.err !== true ? (
-              <div
-                style={{ position: "relative", top: "8vh", left: "25vw" }}
-                className="lds-facebook"
-              ></div>
-            ) : Object.keys(this.state.posts).length !== 0 ? (
-              <Row>
-                <Col className="d-none d-lg-block" lg={3}>
-                  {/* <AppNavBar me={this.state.me} />
+          {this.state.loading && this.state.err !== true ? (
+            <div
+              style={{ position: "relative", top: "8vh", left: "25vw" }}
+              className="lds-facebook"
+            ></div>
+          ) : Object.keys(this.state.posts).length !== 0 ? (
+            <Row>
+              <Col className="d-none d-lg-block" lg={3}>
+                {/* <AppNavBar me={this.state.me} />
                   <RSidebar me={this.state.me} /> */}
-                </Col>
-                <Col lg={6} md={9}>
-                  {/* <PostModal
+              </Col>
+              <Col lg={6} md={9}>
+                {/* <PostModal
                     refetch={() => this.fetchPost()}
                     me={this.state.me}
                   />
@@ -103,15 +98,14 @@ export default class Home extends Component {
                         me={this.state.me}
                       />
                     ))} */}
-                </Col>
-                <Col className="d-none d-md-block" md={3}>
-                  {/* <Sidebar /> */}
-                </Col>
-              </Row>
-            ) : (
-              <div></div>
-            )
-          }
+              </Col>
+              <Col className="d-none d-md-block" md={3}>
+                {/* <Sidebar /> */}
+              </Col>
+            </Row>
+          ) : (
+            <div></div>
+          )}
         </Container>
       </div>
     );
