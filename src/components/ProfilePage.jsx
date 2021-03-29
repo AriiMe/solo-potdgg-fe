@@ -98,6 +98,7 @@ class ProfilePage extends React.Component {
                     <div className="d-flex justify-content-between">
                       <div style={{ marginTop: "-130px" }}>
                         <Badge variant="warning">{this.state.users.role}</Badge>
+
                         <img
                           src={this.state.users.imgurl}
                           alt="placeholder"
@@ -108,10 +109,16 @@ class ProfilePage extends React.Component {
                             border: "4px solid white",
                             objectFit: "cover",
                           }}
-                        ></img>
+                        />
                       </div>
                     </div>
-
+                    <div classname="ml-5">
+                      {this.state.users.role === "user" ? (
+                        <a href="/BuyVip">Buy premium</a>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                     <Card.Text>
                       <Row>
                         <Col xs={12} lg={2}>

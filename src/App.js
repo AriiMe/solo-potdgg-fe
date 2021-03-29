@@ -7,10 +7,12 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Upload from "./components/Upload";
 import ProfilePage from "./components/ProfilePage";
+import Faq from "./components/Faq";
 const routes = [
   { path: "/", component: Login },
   { path: "/register", component: Register },
   { path: "/home", component: Home },
+  { path: "/FAQ", component: Faq },
   { path: "/upload", component: Upload },
   { path: "/users/:id", component: ProfilePage }
 ]

@@ -118,11 +118,13 @@ export default class SinglePost extends React.Component {
       >
         <Card.Header className="d-flex justify-content-between px-3">
           <div>
-            <img
-              src={post.user.imgurl}
-              className="postModalImg mr-3"
-              style={{ borderRadius: "100px", width: "50px" }}
-            />
+            <a href="/users/:id">
+              <img
+                src={post.user.imgurl}
+                className="postModalImg mr-3"
+                style={{ borderRadius: "100px", width: "50px" }}
+              />
+            </a>
             <strong className="ml-2">{post.user.username}</strong>
           </div>
           <h1 className="text-center">{post.title}</h1>

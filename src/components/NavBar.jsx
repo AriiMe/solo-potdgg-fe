@@ -8,6 +8,7 @@ import {
   Nav,
   InputGroup,
   Col,
+  Dropdown,
 } from "react-bootstrap";
 import { withRouter, Link } from "react-router-dom";
 import { IconContext } from "react-icons";
@@ -79,12 +80,15 @@ class AppNavBar extends React.Component {
             </Col>
           </Nav.Link>
           <Nav.Link
+            className="navLinkCol"
+            as={Link}
+            to="/FAQ"
             className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}
           >
             <Col className="navCol">
               <GiAbstract038 className="navIcon1" />
               <span id="navtext1" className="navIconText">
-                Pics
+                FAQ
               </span>
             </Col>
           </Nav.Link>
@@ -142,8 +146,8 @@ class AppNavBar extends React.Component {
             </Nav.Link>
 
             <Nav.Link className="navLinkCol">
-              <Col className="navCol">
-                <FaBell className="navIcon" />
+              <Col className="navCol ">
+                <FaBell className="navIcon " />
                 <span className="navIconText">Notifications</span>
               </Col>
             </Nav.Link>
