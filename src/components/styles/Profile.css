@@ -1,0 +1,17 @@
+.card{
+    background-color: rgba(121, 0, 0, 0.287) !important;
+}
+.bg-dark{ 
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+.text{
+    background:linear-gradient(to right, #fb0000 0%, #FF512F 51%, #F09819  100%);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+ .text:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }

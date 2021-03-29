@@ -25,7 +25,7 @@ import coin from "../logo/B.png";
 class AppNavBar extends React.Component {
   state = {
     me: {},
-    isMobile: window.innerWidth < 564,
+    isMobile: window.innerWidth < 700,
   };
   fetchMe = async () => {
     try {
@@ -58,7 +58,9 @@ class AppNavBar extends React.Component {
           >
             <img id="logoboye" src={logo} />
           </Navbar.Brand>
-          <Nav.Link className={`navLinkCol ml-${this.state.isMobile ? "1" : "5"}`}>
+          <Nav.Link
+            className={`navLinkCol ml-${this.state.isMobile ? "1" : "5"}`}
+          >
             <Col className="navCol">
               <GiSmallFire className="navIcon1" />
               <span id="navtext1" className="navIconText">
@@ -66,7 +68,9 @@ class AppNavBar extends React.Component {
               </span>
             </Col>
           </Nav.Link>
-          <Nav.Link className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}>
+          <Nav.Link
+            className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}
+          >
             <Col className="navCol">
               <GiCometSpark className="navIcon1" />
               <span id="navtext1" className="navIconText">
@@ -74,7 +78,9 @@ class AppNavBar extends React.Component {
               </span>
             </Col>
           </Nav.Link>
-          <Nav.Link className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}>
+          <Nav.Link
+            className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}
+          >
             <Col className="navCol">
               <GiAbstract038 className="navIcon1" />
               <span id="navtext1" className="navIconText">
@@ -125,15 +131,16 @@ class AppNavBar extends React.Component {
                 ></img>
               </Col>
             </Nav.Link>
-            {this.state.isMobile ? "bottom" : <Nav.Link clas sName="navLinkCol" as={Link} to="/upload">
+
+            <Nav.Link clas sName="navLinkCol" as={Link} to="/upload">
               <Col className="navCol">
                 <GiCloudUpload className="navIcon" />
                 <span style={{ marginBottom: "13px" }} className="navIconText">
                   Upload
                 </span>
               </Col>
-            </Nav.Link>}
-            
+            </Nav.Link>
+
             <Nav.Link className="navLinkCol">
               <Col className="navCol">
                 <FaBell className="navIcon" />

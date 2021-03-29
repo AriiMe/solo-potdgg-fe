@@ -3,7 +3,7 @@
 import React from "react";
 import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
-
+import { MdReport } from "react-icons/md";
 import moment from "moment";
 
 import EditPost from "./EditPost";
@@ -109,47 +109,66 @@ export default class SinglePost extends React.Component {
         data-aos="zoom-in-up"
         data-aos-offset="500"
         data-aos-duration="5000"
+        border="dark"
         className="w-100 my-4"
         key={`feed${post.id}`}
+        style={{ borerRadius: "0px !important" }}
+        loading="lazy"
+        bg="dark"
       >
         <Card.Header className="d-flex justify-content-between px-3">
           <div>
             <img
-              src={post.profile.imgurl}
+              src={post.user.imgurl}
               className="postModalImg mr-3"
-              style={{ borderRadius: "100px" }}
+              style={{ borderRadius: "100px", width: "50px" }}
             />
-            {post.profile.name + " " + post.profile.surename}
+            <strong className="ml-2">{post.user.username}</strong>
           </div>
-          {me.id === post.profileId && (
+          <h1 className="text-center">{post.title}</h1>
+          {me.id === post.userId && (
             <EditPost post={post} refetch={() => fetchPost()} me={me} />
           )}
+          <MdReport style={{ fontSize: "40px" }} />
         </Card.Header>
         {post.imgurl && (
-          <Card.Img src={post.imgurl} alt="Postimgurl" className="postimgurl" />
+          <video controls interval={null} muted src={post.imgurl} />
         )}
         <span style={{ padding: "10px" }} className="text-muted text-right">
           {moment(post.createdAt).fromNow()}
         </span>
+        <p className="text-left ml-5" style={{ overflow: "hidden" }}>
+          {post.description}
+        </p>
         <Card.Text className="p-3">{post.text}</Card.Text>
+
         <Card.Footer className="HomeModal bg-white">
-          <Button
-            variant={
-              !this.state.isLiked ? "outline-dark mx-1" : "outline-success mx-1"
-            }
-            onClick={() => this.handleLike()}
-          >
-            <BiLike /> Like {this.state.likes}
-          </Button>
-          <Button variant="outline-dark mx-1">
-            <BiCommentDetail /> Comment
-          </Button>
-          <Button variant="outline-dark mx-1">
-            <BiShare /> Share
-          </Button>
-          <Button variant="outline-dark mx-1">
-            <BiSend /> Send
-          </Button>
+          <Row>
+            <Col xs={6} sm={6} lg={8} xl={10}>
+              <Button
+                variant={
+                  !this.state.isLiked
+                    ? "outline-dark mx-1"
+                    : "outline-warning mx-1"
+                }
+                onClick={() => this.handleLike()}
+              >
+                <BiLike /> Like {this.state.likes}
+              </Button>
+              <Button variant="outline-dark mx-1">
+                <BiCommentDetail /> Comment
+              </Button>
+            </Col>
+
+            <Col className="mr-1">
+              <Button variant="outline-dark mx-1">
+                <BiShare /> Share
+              </Button>
+              <Button variant="outline-dark mx-1">
+                <BiSend /> Send
+              </Button>
+            </Col>
+          </Row>
         </Card.Footer>
       </Card>
     );

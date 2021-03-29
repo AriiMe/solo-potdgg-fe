@@ -1,3 +1,4 @@
+/** @format */
 
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
@@ -5,48 +6,45 @@ import GoogleButton from "react-google-button";
 import { withRouter } from "react-router-dom";
 import logo from "../logo/potd.gif";
 import monke from "../logo/monke.jpg";
-import {
-  GiVideoCamera
-} from "react-icons/gi";
+import { GiVideoCamera } from "react-icons/gi";
 function Upload(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [previewimg, setPreviewimg] = useState();
   const [img, setImg] = useState("");
 
   const postUpload = async (e) => {
     e.preventDefault();
+    console.log(img);
     try {
-      let response = await fetch(
-        "https://potd-lol.herokuapp.com/potd/posts",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            title: title,
-            description: description,
-            img: img
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      let response = await fetch("https://potd-lol.herokuapp.com/potd/posts", {
+        method: "POST",
+        body: JSON.stringify({
+          title: title,
+          description: description,
+          imgurl: "",
+        }),
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       let resp = await response.json();
-      await picFetch(resp.id);
+      await vidUpload(resp.id);
       props.history.push("/home");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const picFetch = async (id) => {
+  const vidUpload = async (id) => {
     try {
       let yeet = new FormData();
-      yeet.append("ProfilePic", img);
+      yeet.append("PostImage", img);
       let response = await fetch(
-        `https://potd-lol.herokuapp.com/potd/users/${id}/upload/register`,
+        `https://potd-lol.herokuapp.com/potd/posts/${id}/upload`,
         {
           method: "PUT",
+          credentials: "include",
           body: yeet,
         }
       );
@@ -76,7 +74,7 @@ function Upload(props) {
                 accept="video/mp4, video/mov"
                 className="w-full my-3 monke container mx-auto"
                 onChange={(e) => setImg(e.currentTarget.files[0])}
-              /> 
+              />
               <label htmlFor="video">
                 <GiVideoCamera />
               </label>
@@ -96,7 +94,8 @@ function Upload(props) {
             <Form.Group>
               <Form.Control
                 id="description"
-                as="textarea" rows={3} 
+                as="textarea"
+                rows={3}
                 className="w-full my-3"
                 type="description"
                 placeholder="Description"
@@ -105,7 +104,7 @@ function Upload(props) {
                 onChange={(e) => setDescription(e.currentTarget.value)}
               />
             </Form.Group>
-            
+
             <button className="w-full my-3" type="submit">
               Upload
             </button>

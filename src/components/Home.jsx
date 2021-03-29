@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
 import "./styles/Home.css";
+import SinglePost from "./SinglePost";
 
 export default class Home extends Component {
   state = {
@@ -60,17 +61,16 @@ export default class Home extends Component {
     }
   };
   componentDidMount() {
-    this.fetchPost();
     this.fetchMe();
+    this.fetchPost();
   }
   render() {
     this.state.posts.length > 0
       ? console.log("render", this.state.posts[0].user.imgurl)
       : console.log(" ");
     return (
-      <div className="homeDiv">
-        <h1>g'day Cunt</h1>
-        <Container className="HomeCont">
+      <div className="homeDiv mt-5">
+        <Container className="HomeCont" style={{ maxWidth: "5000px" }}>
           {this.state.err && (
             <Alert variant="danger">{this.state.errMsg}</Alert>
           )}
@@ -86,18 +86,14 @@ export default class Home extends Component {
                   <RSidebar me={this.state.me} /> */}
               </Col>
               <Col lg={6} md={9}>
-                {/* <PostModal
-                    refetch={() => this.fetchPost()}
-                    me={this.state.me}
-                  />
-                  {this.state.posts.length > 0 &&
-                    this.state.posts.map((post) => (
-                      <SinglePost
-                        post={post}
-                        fetchPost={() => this.fetchPost()}
-                        me={this.state.me}
-                      />
-                    ))} */}
+                {this.state.posts.length > 0 &&
+                  this.state.posts.map((post) => (
+                    <SinglePost
+                      post={post}
+                      fetchPost={() => this.fetchPost()}
+                      me={this.state.me}
+                    />
+                  ))}
               </Col>
               <Col className="d-none d-md-block" md={3}>
                 {/* <Sidebar /> */}
