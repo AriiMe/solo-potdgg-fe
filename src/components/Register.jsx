@@ -62,13 +62,9 @@ function Register(props) {
   };
   return (
     <>
-      <div class="video-background">
-        <div class="video-foreground"></div>
-      </div>
-
       <div className="container mx-auto p-52 text-center text-4xl">
         <div className="container mx-auto"></div>
-        <div className="max-w-md mx-auto my-10">
+        <div className="max-w-md mx-auto">
           <img src={logo} alt="potd" width="200" className="mx-auto" />
           <Form onSubmit={signUpFetch} className="m-7">
             <h1>Upload an image</h1>

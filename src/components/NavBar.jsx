@@ -53,50 +53,58 @@ class AppNavBar extends React.Component {
         className={`py-0 fixed-${this.state.isMobile ? "bottom" : "top"}`}
       >
         <div className="navbarContent">
+        
           <Navbar.Brand
             onClick={() => this.props.history.push("/home")}
-            className="navbarBrand d-flex nowrap mr-2"
+            className={`navbarBrand d-flex nowrap mr-${this.state.isMobile ? "0" : "2"}`}
           >
-            <img id="logoboye" {this.state.isMobile ? style={{width: "15px"}} : alt="idklogo" } src={logo} />
+            <img id="logoboye" width="30"
+        height="30" src={logo} />
           </Navbar.Brand>
+          
+          <Col className="navCol">
           <Nav.Link
           as={Link}
             to="/HotPosts"
-            className={`navLinkCol ml-${this.state.isMobile ? "0" : "5"}`}
+            className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}
           >
-            <Col className="navCol">
+            
               <GiSmallFire className="navIcon1" />
               <span id="navtext1" className="navIconText">
                 Hot Posts
               </span>
-            </Col>
+            
           </Nav.Link>
+          </Col>
+          <Col className="navCol">
           <Nav.Link
           as={Link}
             to="/trendingPosts"
             className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}
           >
-            <Col className="navCol">
+            
               <GiCometSpark className="navIcon1" />
               <span id="navtext1" className="navIconText">
                 Trending
               </span>
-            </Col>
+            
           </Nav.Link>
+          </Col>
+          <Col className="navCol">
           <Nav.Link
             className="navLinkCol"
             as={Link}
             to="/FAQ"
             className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}
           >
-            <Col className="navCol">
+            
               <GiAbstract038 className="navIcon1" />
               <span id="navtext1" className="navIconText">
                 FAQ
               </span>
-            </Col>
+            
           </Nav.Link>
-
+</Col>
           {/* <Form inline className="navSearch">
             <InputGroup>
               <InputGroup.Prepend>
@@ -123,52 +131,56 @@ class AppNavBar extends React.Component {
             </InputGroup>
           </Form> */}
           <div className="ml-auto mr-0 d-flex row justify-content-end">
+           <Col className="navCol">
             <Nav.Link className="navLinkCol" as={Link} to="/users/me">
-              <span id="coino" className="navIconText">
+              <span id="coino" className={`navIconText ml-${this.state.isMobile ? "0" : "4"}`}>
                 {this.state.me.coins}
               </span>
 
-              <Col className="navCol">
+             
                 <img
                   style={{
-                    height: "30px",
+                    width: "40px",
                     borderRadius: "100px",
                   }}
                   src={coin}
                   className="navIcon"
                 ></img>
-              </Col>
+              
             </Nav.Link>
-
-            <Nav.Link clas sName="navLinkCol" as={Link} to="/upload">
-              <Col className="navCol">
-                <GiCloudUpload className="navIcon" />
-                <span style={{ marginBottom: "13px" }} className="navIconText">
-                  Upload
-                </span>
-              </Col>
+</Col>
+<Col className="navCol">
+            <Nav.Link className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}  as={Link} to="/upload">
+              
+                <GiCloudUpload style={{
+                    fontSize: "30px",
+                    marginBottom: "10px"
+                  }}  className="navIcon" />
+              
             </Nav.Link>
-
-            <Nav.Link className="navLinkCol">
-              <Col className="navCol ">
+</Col>
+<Col className="navCol ">
+            <Nav.Link className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}>
+              
                 <FaBell className="navIcon " />
-                <span className="navIconText">Notifications</span>
-              </Col>
+              
             </Nav.Link>
-
+</Col>
             {/* <div className="vl"></div> */}
-            <Nav.Link className="navLinkCol" as={Link} to="/users/me">
-              <Col className="navCol">
+            <Col className="navCol">
+            <Nav.Link className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`} as={Link} to="/users/me">
+              
                 <img
                   style={{
-                    height: "40px",
+                    width: "40px",
                     borderRadius: "100px",
                   }}
                   src={this.state.me.imgurl}
                   className="navIcon"
                 ></img>
-              </Col>
+              
             </Nav.Link>
+            </Col>
           </div>
         </div>
       </Navbar>
