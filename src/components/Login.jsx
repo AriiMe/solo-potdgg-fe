@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import "./styles/Login.css";
-import logo from "../logo/B.png";
 export default function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -44,8 +43,6 @@ export default function Login(props) {
             className="grid grid-flow-col auto-cols-max md:auto-cols-min "
             xs={12}
           >
-            <h1>Login.</h1>
-            <img src={logo} alt="potd" width="250" />
           </div>
         </div>
         <div className="grid grid-flow-row auto-rows-max md:auto-rows-min">
