@@ -60,6 +60,8 @@ class AppNavBar extends React.Component {
             <img id="logoboye" src={logo} />
           </Navbar.Brand>
           <Nav.Link
+          as={Link}
+            to="/HotPosts"
             className={`navLinkCol ml-${this.state.isMobile ? "1" : "5"}`}
           >
             <Col className="navCol">
@@ -70,6 +72,8 @@ class AppNavBar extends React.Component {
             </Col>
           </Nav.Link>
           <Nav.Link
+          as={Link}
+            to="/trendingPosts"
             className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}
           >
             <Col className="navCol">

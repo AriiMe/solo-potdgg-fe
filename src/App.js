@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Upload from "./components/Upload";
+import HotPosts from "./components/HotPosts";
+import Trending from "./components/Trending";
 import ProfilePage from "./components/ProfilePage";
 import Faq from "./components/Faq";
 const routes = [
@@ -14,6 +16,8 @@ const routes = [
   { path: "/home", component: Home },
   { path: "/FAQ", component: Faq },
   { path: "/upload", component: Upload },
+  { path: "/HotPosts", component: HotPosts },
+  { path: "/trendingPosts", component: Trending },
   { path: "/users/:id", component: ProfilePage }
 ]
 const exclusionArray = [

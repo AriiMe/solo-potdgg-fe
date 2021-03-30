@@ -28,8 +28,8 @@ function Faq() {
             <h1 style={{ color: "red" }}>How can I contact support?</h1>
             <p style={{ fontSize: "25px" }}>
               Write an email by clicking {""}
-              <a href="mailto:support@potd.lol">Here</a> or fill out our contact
-              formular
+              <a href="mailto:support@potd.lol">Here</a> or fill out our <a href="/contactUs"> contact
+              form </a>
             </p>
           </Col>
         </Row>
