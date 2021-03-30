@@ -57,12 +57,12 @@ class AppNavBar extends React.Component {
             onClick={() => this.props.history.push("/home")}
             className="navbarBrand d-flex nowrap mr-2"
           >
-            <img id="logoboye" src={logo} />
+            <img id="logoboye" {this.state.isMobile ? style={{width: "15px"}} : alt="idklogo" } src={logo} />
           </Navbar.Brand>
           <Nav.Link
           as={Link}
             to="/HotPosts"
-            className={`navLinkCol ml-${this.state.isMobile ? "1" : "5"}`}
+            className={`navLinkCol ml-${this.state.isMobile ? "0" : "5"}`}
           >
             <Col className="navCol">
               <GiSmallFire className="navIcon1" />
