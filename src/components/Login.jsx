@@ -77,7 +77,7 @@ export default function Login(props) {
                 <p className="LoginBtn">LogIn</p>
               </button>
               <hr />
-              <a href="http://localhost:6969/authors/googleLogin">
+              <a href="https://www.potd.lol/googleOauth">
                 {" "}
                 <GoogleButton
                   className="grid justify-items-center"
