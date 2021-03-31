@@ -5,8 +5,9 @@ import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
 import "./styles/Home.css";
 import SinglePost from "./SinglePost";
+import { withRouter } from "react-router-dom";
 
-export default class Home extends Component {
+class Home extends Component {
   state = {
     posts: [],
     me: {},
@@ -107,3 +108,4 @@ export default class Home extends Component {
     );
   }
 }
+export default withRouter(Home);

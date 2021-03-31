@@ -10,6 +10,9 @@ import HotPosts from "./components/HotPosts";
 import Trending from "./components/Trending";
 import ProfilePage from "./components/ProfilePage";
 import Faq from "./components/Faq";
+import PostPage from "./components/PostPage";
+
+
 const routes = [
   { path: "/", component: Login },
   { path: "/register", component: Register },
@@ -17,8 +20,7 @@ const routes = [
   { path: "/FAQ", component: Faq },
   { path: "/upload", component: Upload },
   { path: "/HotPosts", component: HotPosts },
-  { path: "/trendingPosts", component: Trending },
-  { path: "/users/:id", component: ProfilePage }
+  { path: "/trendingPosts", component: Trending }
 ]
 const exclusionArray = [
   '/',
@@ -35,6 +37,8 @@ function App({ location }) {
           <Route exact path={path} component={component} />
         )
       }
+      <Route path="/users/:id" render={(props) => <ProfilePage {...props} />} />
+      <Route path="/posts/:id" render={(props) => <PostPage {...props} />} />
     </>
   );
 }

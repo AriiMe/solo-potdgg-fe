@@ -57,6 +57,7 @@ class ProfilePage extends React.Component {
         });
       });
   };
+
   componentDidMount = async () => {
     this.props.match.params.id &&
       this.searchProfile(this.props.match.params.id);
@@ -66,6 +67,7 @@ class ProfilePage extends React.Component {
       this.searchProfile(this.props.match.params.id);
     }
   };
+
   render() {
     return (
       <div className="container  d-flex justify-content-center">
