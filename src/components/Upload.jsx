@@ -14,7 +14,6 @@ function Upload(props) {
   const [processing, setProcessing] = useState(false);
   const [toolong, setToolong] = useState(false);
   const postUpload = async (e) => {
-    console.log(img);
     try {
       let response = await fetch("https://potd-lol.herokuapp.com/potd/posts", {
         method: "POST",
