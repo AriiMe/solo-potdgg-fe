@@ -1,7 +1,8 @@
 #nav3{
     background-color:rgb(24, 23, 23);
     background-attachment: fixed;
-    
+    -webkit-box-shadow: 0px 10px 31px 0px rgba(0, 0, 0, 0.72) !important;
+    box-shadow: 0px 10px 31px 0px rgb(214 214 214 / 10%) !important;
 }
 .navbarContent {
     display: flex;
@@ -12,12 +13,14 @@
     margin: 0;
     height: 50px;
     width: 100%;
+    
   }
   .navbarBrand {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     white-space: nowrap;
+    
   }
   .navSearch {
     margin-right: auto;
@@ -44,9 +47,11 @@
     height: 52px;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    
   }
   .navLinkCol {
     padding: 0 !important;
+    
   }
   .navCol {
     font-size: 24px;
@@ -60,6 +65,7 @@
     font-size: 24px;
     align-self: center;
     display: block;
+    
   }
   .navIconText {
     font-size: 15px;
@@ -67,12 +73,15 @@
     overflow: hidden;
     white-space: nowrap;
     display: none;
+    
   }
   .navIcon1 {
     color: #FF7500;
     font-size: 25px;
     align-self: center;
     display: block;
+    -webkit-box-shadow: 0px 10px 31px 0px rgba(0, 0, 0, 0.72) !important;
+    box-shadow: 0px 10px 31px 0px rgb(214 214 214 / 10%) !important;
   }
   #navtext1 {
     color: #FF7500 !important;
