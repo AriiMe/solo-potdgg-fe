@@ -42,8 +42,7 @@ export default function Login(props) {
           <div
             className="grid grid-flow-col auto-cols-max md:auto-cols-min "
             xs={12}
-          >
-          </div>
+          ></div>
         </div>
         <div className="grid grid-flow-row auto-rows-max md:auto-rows-min">
           <div

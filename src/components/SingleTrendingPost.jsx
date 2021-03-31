@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
@@ -8,7 +10,7 @@ import EditPost from "./EditPost";
 
 export default class SingleTrendingPost extends React.Component {
   state = {
-    likes: 0,
+    likes: [],
     isliked: false,
     comments: [],
     errorMessege: false,

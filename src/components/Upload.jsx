@@ -11,10 +11,9 @@ function Upload(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [img, setImg] = useState("");
-  const [processing, setProcessing] = useState(false)
-  const [toolong, setToolong] = useState(false)
+  const [processing, setProcessing] = useState(false);
+  const [toolong, setToolong] = useState(false);
   const postUpload = async (e) => {
-    
     console.log(img);
     try {
       let response = await fetch("https://potd-lol.herokuapp.com/potd/posts", {
@@ -37,8 +36,6 @@ function Upload(props) {
     }
   };
 
-
-
   const vidUpload = async (id) => {
     try {
       let yeet = new FormData();
@@ -53,14 +50,14 @@ function Upload(props) {
       );
       let resp = await response.json();
       console.log(resp);
-      console.log("succ")
+      console.log("succ");
     } catch (error) {
       console.log(error);
     }
   };
 
-const checkDuration = (e) => {
-  e.preventDefault();
+  const checkDuration = (e) => {
+    e.preventDefault();
     let video = document.createElement("video");
     video.preload = "metadata";
 
@@ -70,15 +67,15 @@ const checkDuration = (e) => {
       img.duration = duration;
       console.log(img);
       if (img.duration <= 20) {
-        setProcessing(true)
+        setProcessing(true);
         postUpload(img);
-      } else{
-        console.log("video is longer than 20sex")
-        setToolong(true)
+      } else {
+        console.log("video is longer than 20sex");
+        setToolong(true);
       }
     };
     video.src = URL.createObjectURL(img);
-};
+  };
   return (
     <>
       <div class="video-background">
@@ -134,7 +131,7 @@ const checkDuration = (e) => {
               Upload
             </button>
           </Form>
-          { processing ? <h1>Processing... please wait</h1> : <></>}
+          {processing ? <h1>Processing... please wait</h1> : <></>}
           {toolong ? <h1>Video longer than 20 sec</h1> : <></>}
         </div>
       </div>

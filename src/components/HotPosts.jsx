@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
@@ -6,6 +8,7 @@ import SingleHotPost from "./SingleHotPost";
 
 export default class HotPosts extends Component {
   state = {
+    likes: [],
     posts: [],
     me: {},
     showAlert: null,
@@ -38,10 +41,27 @@ export default class HotPosts extends Component {
       });
     }
   };
-  fecthLikes = async () => {
+  fetchLikes = async () => {
     try {
-      const result = await fetch("https://potd-lol.herokuapp.com/potd/like");
-    } catch (e) {}
+      const result = await fetch(
+        `https://potd-lol.herokuapp.com/potd/like/${this.props.me.id}/${this.props.post.id}/likes`,
+        {
+          credentials: "include",
+        }
+      );
+      const response = await result.json();
+      console.log(response);
+      this.setState({ likes: response.total, isLiked: response.isLiked });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  sortLikes = () => {
+    this.setState({
+      likes: this.state.likes.sort((a, b) => {
+        return b - a;
+      }),
+    });
   };
   fetchMe = async () => {
     try {
@@ -58,11 +78,20 @@ export default class HotPosts extends Component {
       console.log(error);
     }
   };
+
   componentDidMount() {
     this.fetchMe();
+    this.sortLikes();
     this.fetchPost();
   }
   render() {
+    console.log(
+      this.state.likes
+        .sort((a, b) => {
+          return a - b;
+        })
+        .reverse()
+    );
     this.state.posts.length > 0
       ? console.log("render", this.state.posts[0].user.imgurl)
       : console.log(" ");
@@ -85,13 +114,15 @@ export default class HotPosts extends Component {
               </Col>
               <Col lg={6} md={9}>
                 {this.state.posts.length > 0 &&
-                  this.state.posts.map((post) => (
-                    <SingleHotPost
-                      post={post}
-                      fetchPost={() => this.fetchPost()}
-                      me={this.state.me}
-                    />
-                  ))}
+                  this.state.posts
+                    .sort((a, b) => b.likes.length - a.likes.length)
+                    .map((post) => (
+                      <SingleHotPost
+                        post={post}
+                        fetchPost={() => this.fetchPost()}
+                        me={this.state.me}
+                      />
+                    ))}
               </Col>
               <Col className="d-none d-md-block" md={3}>
                 {/* <Sidebar /> */}

@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";

@@ -8,7 +8,7 @@
     flex-direction: row;
     overflow: hidden;
     white-space: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin: 0;
     height: 50px;
     width: 100%;
@@ -80,6 +80,8 @@
   @media screen and (max-width: 1024) {
     .navbarContent {
       width: 100%;
+      display: flex !important;
+      justify-content: space-between !important;
     }
     .navCol,
     .navLinkCol {

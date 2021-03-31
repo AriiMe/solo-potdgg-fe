@@ -1,16 +1,9 @@
-import React from 'react'
+/** @format */
+
+import React from "react";
 
 function PostPage() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return <div></div>;
 }
 
-export default PostPage
-
-
-
-
-
+export default PostPage;

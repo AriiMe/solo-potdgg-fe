@@ -10,7 +10,7 @@ import EditPost from "./EditPost";
 
 export default class SinglePost extends React.Component {
   state = {
-    likes: 0,
+    likes: [],
     isliked: false,
     comments: [],
     errorMessege: false,
@@ -103,7 +103,6 @@ export default class SinglePost extends React.Component {
 
   render() {
     const { post, fetchPost, me } = this.props;
-    console.log("me", me);
     return (
       <Card
         data-aos="zoom-in-up"
@@ -128,10 +127,13 @@ export default class SinglePost extends React.Component {
             <strong className="ml-2">{post.user.username}</strong>
           </div>
           <h1 className="text-center">{post.title}</h1>
-          {me.id === post.userId && (
-            <EditPost post={post} refetch={() => fetchPost()} me={me} />
-          )}
-          <MdReport style={{ fontSize: "40px" }} />
+          <div className="d-flex align-items-center">
+            {" "}
+            {me.id === post.userId && (
+              <EditPost post={post} refetch={() => fetchPost()} me={me} />
+            )}
+            <MdReport style={{ fontSize: "40px" }} />
+          </div>
         </Card.Header>
         {post.imgurl && (
           <video controls interval={null} muted src={post.imgurl} />
@@ -144,31 +146,34 @@ export default class SinglePost extends React.Component {
         </p>
         <Card.Text className="p-3">{post.text}</Card.Text>
 
-        <Card.Footer className="HomeModal bg-white">
-          <Row>
-            <Col xs={6} sm={6} lg={8} xl={10}>
-              <Button
-                variant={
-                  !this.state.isLiked
-                    ? "outline-dark mx-1"
-                    : "outline-warning mx-1"
-                }
-                onClick={() => this.handleLike()}
-              >
-                <BiLike /> Like {this.state.likes}
-              </Button>
-              <Button variant="outline-dark mx-1">
-                <BiCommentDetail /> Comment
-              </Button>
-            </Col>
+        <Card.Footer className="HomeModal">
+          <Row className="d-flex justify-content-between">
+            <Col style={{ display: "flex", justifyContent: "space-between" }}>
+              <div>
+                <Button
+                  variant={
+                    !this.state.isLiked
+                      ? "outline-dark mx-1"
+                      : "outline-warning mx-1"
+                  }
+                  onClick={() => this.handleLike()}
+                >
+                  <BiLike /> Like {this.state.likes}
+                </Button>
+                <Button variant="outline-dark mx-1">
+                  <BiCommentDetail /> Comment
+                </Button>
+              </div>
 
-            <Col className="mr-1">
-              <Button variant="outline-dark mx-1">
-                <BiShare /> Share
-              </Button>
-              <Button variant="outline-dark mx-1">
-                <BiSend /> Send
-              </Button>
+              <div>
+                {" "}
+                <Button variant="outline-dark mx-1">
+                  <BiShare /> Share
+                </Button>
+                <Button variant="outline-dark mx-1">
+                  <BiSend /> Send
+                </Button>
+              </div>
             </Col>
           </Row>
         </Card.Footer>

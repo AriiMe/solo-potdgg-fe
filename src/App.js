@@ -23,6 +23,7 @@ const routes = [
 const exclusionArray = [
   '/',
   '/register',
+  '/googleOauth'
 ]
 
 function App({ location }) {

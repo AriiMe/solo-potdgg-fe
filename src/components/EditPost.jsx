@@ -107,7 +107,7 @@ class EditPost extends React.Component {
       <>
         <div
           onClick={() => this.setState({ showModal: true })}
-          className="JumbBiPencilDiv"
+          className="JumbBiPencilDiv mr-2"
         >
           <IconContext.Provider
             value={{
