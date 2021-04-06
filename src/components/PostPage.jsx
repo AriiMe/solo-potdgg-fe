@@ -1,7 +1,17 @@
 /** @format */
 
 import React, { useState, useEffect } from "react";
-import { Container, Button, Row, Col, Card, Form } from "react-bootstrap";
+import {
+  Container,
+  Button,
+  Row,
+  Col,
+  Card,
+  Form,
+  Image,
+  ListGroup,
+} from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import "./styles/PostPage.css";
 function PostPage(props) {
@@ -71,6 +81,55 @@ function PostPage(props) {
             Comment
           </button>
         </Form>
+        {/* <Row>
+          <Col md={8}>
+            <h1>Comment Section</h1>
+            {comments.length === 0 ? (
+              <h1 variant="info">
+                No Comments <Link to="/">Go Back</Link>
+              </h1>
+            ) : (
+              <ListGroup variant="flush">
+                {comments.map((post) => (
+                  <ListGroup.Item key={post.id}>
+                    <Row>
+                      <Col md={2}>
+                        <Image src={post.image} alt={post.name} fluid rounded />
+                      </Col>
+                      <Col md={3}>{post.comment}</Col>
+                      <Col md={2}></Col>
+                      <Col md={3}></Col>
+                      <Col md={1}></Col>
+                    </Row>
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            )}
+          </Col>
+          <Col md={4}>
+            <Card>
+                    <ListGroup variant='flush'>
+                        <ListGroup.Item>
+                            <h2>Subtotal ({comments.reduce((acc, item) => acc + item.qty, 0)})</h2>
+                            ${comments.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
+                        </ListGroup.Item>
+                    </ListGroup>
+                    <ListGroup>
+                        <ListGroup.Item>
+                            <Button
+                                type='button'
+                                className='btn-block'
+                                variant='success'
+                                disabled={comments.length === 0}
+                                onClick={checkoutHandler}
+                            >
+                                Checkout
+                            </Button>
+                        </ListGroup.Item>
+                    </ListGroup>
+                </Card>
+          </Col>
+        </Row> */}
       </div>
     </Container>
   );
