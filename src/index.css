@@ -8,3 +8,6 @@ body {
     font-family: 'VT323' !important;
     min-height: 100vh;
   }
+  h1{
+    font-size: 50px !important;
+  }

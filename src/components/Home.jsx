@@ -70,7 +70,7 @@ class Home extends Component {
       ? console.log("render", this.state.posts[0].user.imgurl)
       : console.log(" ");
     return (
-      <div className="homeDiv mt-5">
+      <div className="homeDiv">
         <Container className="HomeCont" style={{ maxWidth: "5000px" }}>
           {this.state.err && (
             <Alert variant="danger">{this.state.errMsg}</Alert>

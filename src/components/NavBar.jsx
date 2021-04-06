@@ -50,7 +50,7 @@ class AppNavBar extends React.Component {
     return (
       <Navbar
         id="nav3"
-        className={`py-0 fixed-${this.state.isMobile ? "bottom" : "top"}`}
+        className={` fixed-${this.state.isMobile ? "bottom" : "top"}`}
       >
         <div className="navbarContent d-flex justify-content-space-between">
           <div className="ml-0 mr-0 d-flex row">
@@ -60,7 +60,7 @@ class AppNavBar extends React.Component {
                 this.state.isMobile ? "0" : "2"
               }`}
             >
-              <img id="logoboye" width="30" height="30" src={logo} />
+              <img id="logoboye" width="90" height="90" src={logo} />
             </Navbar.Brand>
 
             <Col className="navCol">
@@ -140,12 +140,13 @@ class AppNavBar extends React.Component {
                 </span>
 
                 <img
-                  style={{
-                    width: "40px",
-                    borderRadius: "100px",
-                  }}
                   src={coin}
-                  className="navIcon"
+                  style={{
+                    minWidth: "50px",
+                    borderRadius: "100px",
+                    height: "75%",
+                    marginTop: "0.5em",
+                  }}
                 ></img>
               </Nav.Link>
             </Col>
@@ -156,10 +157,7 @@ class AppNavBar extends React.Component {
                 to="/upload"
               >
                 <GiCloudUpload
-                  style={{
-                    fontSize: "30px",
-                    marginBottom: "10px",
-                  }}
+                  style={{ width: "1.5em", height: "1.5em" }}
                   className="navIcon"
                 />
               </Nav.Link>
@@ -180,8 +178,10 @@ class AppNavBar extends React.Component {
               >
                 <img
                   style={{
-                    width: "40px",
+                    minWidth: "40px",
                     borderRadius: "100px",
+                    height: "75%",
+                    marginTop: "0.5em",
                   }}
                   src={this.state.me.imgurl}
                   className="navIcon"

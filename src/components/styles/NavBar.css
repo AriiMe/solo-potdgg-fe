@@ -1,123 +1,122 @@
-#nav3{
-    background-color:rgb(24, 23, 23);
-    background-attachment: fixed;
-    -webkit-box-shadow: 0px 10px 31px 0px rgba(0, 0, 0, 0.72) !important;
-    box-shadow: 0px 10px 31px 0px rgb(214 214 214 / 10%) !important;
+/** @format */
+
+#nav3 {
+  background-color: rgb(24, 23, 23);
+  background-attachment: fixed;
+  -webkit-box-shadow: 0px 10px 31px 0px rgba(0, 0, 0, 0.72) !important;
+  box-shadow: 0px 10px 31px 0px rgb(214 214 214 / 10%) !important;
 }
 .navbarContent {
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    white-space: nowrap;
-    justify-content: space-between;
-    margin: 0;
-    height: 50px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  white-space: nowrap;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}
+.navbarBrand {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+}
+.navSearch {
+  margin-right: auto;
+  margin-left: 0;
+  padding: 0;
+  max-width: 280px;
+}
+.navSearch .input-group-text,
+.navSearch .form-control {
+  font-size: 14px !important;
+  background-color: #eef3f8;
+}
+.navSearch .input-group-text,
+.navSearch .form-control {
+  border: 0;
+  padding-right: 0;
+}
+.navLinkCol,
+.navCol.col {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 52px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.navLinkCol {
+  padding: 0 !important;
+}
+.navCol {
+  font-size: 24px;
+  text-align: center;
+  flex-direction: column;
+
+  padding: 12px !important;
+}
+.navIcon {
+  color: grey;
+  width: 1.5em;
+  height: 1.5em;
+  align-self: center;
+  display: block;
+  margin-top: 0.5em;
+}
+.navIconText {
+  font-size: 15px;
+  color: grey;
+  overflow: hidden;
+  white-space: nowrap;
+  display: none;
+}
+.navIcon1 {
+  color: #ff7500;
+  width: 1.5em;
+  height: 1.5em;
+  margin-top: 0.5em;
+  align-self: center;
+  display: block;
+  -webkit-box-shadow: 0px 10px 31px 0px rgba(0, 0, 0, 0.72) !important;
+  box-shadow: 0px 10px 31px 0px rgb(214 214 214 / 10%) !important;
+}
+#navtext1 {
+  color: #ff7500 !important;
+  margin-top: 10px;
+}
+@media screen and (max-width: 1024) {
+  .navbarContent {
     width: 100%;
-    
-  }
-  .navbarBrand {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    white-space: nowrap;
-    
-  }
-  .navSearch {
-    margin-right: auto;
-    margin-left: 0;
-    padding: 0;
-    max-width: 280px;
-  }
-  .navSearch .input-group-text,
-  .navSearch .form-control {
-    font-size: 14px !important;
-    background-color: #eef3f8;
-  }
-  .navSearch .input-group-text,
-  .navSearch .form-control {
-    border: 0;
-    padding-right: 0;
-  }
-  .navLinkCol,
-  .navCol.col {
     display: flex !important;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    height: 52px;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    
+    justify-content: space-between !important;
   }
+  .navCol,
   .navLinkCol {
-    padding: 0 !important;
-    
+    width: 44px;
   }
-  .navCol {
-    font-size: 24px;
-    text-align: center;
-    flex-direction: column;
-  
-    padding: 12px !important;
-  }
-  .navIcon {
-    color: grey;
-    font-size: 24px;
-    align-self: center;
-    display: block;
-    
+}
+
+@media screen and (min-width: 1128px) {
+  .navCol,
+  .navLinkCol {
   }
   .navIconText {
-    font-size: 15px;
-    color: grey;
-    overflow: hidden;
-    white-space: nowrap;
-    display: none;
-    
-  }
-  .navIcon1 {
-    color: #FF7500;
-    font-size: 25px;
-    align-self: center;
     display: block;
-    -webkit-box-shadow: 0px 10px 31px 0px rgba(0, 0, 0, 0.72) !important;
-    box-shadow: 0px 10px 31px 0px rgb(214 214 214 / 10%) !important;
   }
-  #navtext1 {
-    color: #FF7500 !important;
-  }
-  @media screen and (max-width: 1024) {
-    .navbarContent {
-      width: 100%;
-      display: flex !important;
-      justify-content: space-between !important;
-    }
-    .navCol,
-    .navLinkCol {
-      width: 44px;
-    }
-  }
-  
-  @media screen and (min-width: 1128px) {
-    .navCol,
-    .navLinkCol {
-    }
-    .navIconText {
-      display: block;
-    }
-  }
-  .vl {
-    border-left: 1px solid #eee;
-    height: 52px;
-  }
-  #logoboye{
-      width:90px;
-      height:90px;
-      padding: 0;
-      margin-top: 0px;
-      margin-bottom:20px;
-  }
-#coino{
-    font-size:20px !important;
-    color: #FF7500;
+}
+.vl {
+  border-left: 1px solid #eee;
+  height: 52px;
+}
+#logoboye {
+  padding: 0;
+  margin-top: 0px;
+  margin-bottom: -1.5em;
+}
+#coino {
+  margin-top: 10px;
+  font-size: 20px !important;
+  color: #ff7500;
 }
