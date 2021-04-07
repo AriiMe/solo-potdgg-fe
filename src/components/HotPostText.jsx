@@ -3,7 +3,12 @@
 import React from "react";
 import TextTransition, { presets } from "react-text-transition";
 
-const TEXTS = ["Hot", "Burning", "Lit", "Hottest Posts in the block"];
+const TEXTS = [
+  "Hot Posts",
+  "Burning Posts",
+  "Lit Posts",
+  "Hottest Posts in the block",
+];
 
 function HotPostText() {
   const [index, setIndex] = React.useState(0);
