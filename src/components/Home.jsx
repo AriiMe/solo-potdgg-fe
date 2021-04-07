@@ -5,6 +5,7 @@ import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
 import "./styles/Home.css";
 import SinglePost from "./SinglePost";
+import Text from "./Text";
 import { withRouter } from "react-router-dom";
 
 class Home extends Component {
@@ -72,6 +73,7 @@ class Home extends Component {
     return (
       <div className="homeDiv">
         <Container className="HomeCont" style={{ maxWidth: "5000px" }}>
+          <Text />
           {this.state.err && (
             <Alert variant="danger">{this.state.errMsg}</Alert>
           )}

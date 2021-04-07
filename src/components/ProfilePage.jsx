@@ -7,6 +7,7 @@ import {
   Alert,
   Card,
   Dropdown,
+  Container,
   DropdownButton,
   Button,
   Badge,
@@ -70,8 +71,9 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-      <div className="container  d-flex justify-content-center">
-        <div className="mainBody">
+      <Container>
+        <div className="d-flex justify-content-center">
+          {/* <div className="mainBody"> */}
           {this.state.err && (
             <Alert variant="danger">{this.state.errMsg}</Alert>
           )}
@@ -87,8 +89,8 @@ class ProfilePage extends React.Component {
           ) : Object.keys(this.state.users).length !== 0 ? (
             <Row className="rowm">
               {/*<Col lg={3}></Col> */}
-              <Col md={8} style={{ marginTop: "10vh", width: "100vw" }}>
-                <Card className="cardProf" style={{ width: "98vw" }}>
+              <Col style={{ marginTop: "10vh" }}>
+                <Card className="cardProf">
                   <Card.Img
                     className="cardImg"
                     variant="top"
@@ -97,8 +99,8 @@ class ProfilePage extends React.Component {
                     alt="placeholder"
                   />
                   <Card.Body>
-                    <div className="d-flex justify-content-between">
-                      <div style={{ marginTop: "-130px" }}>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div>
                         <Badge variant="warning">{this.state.users.role}</Badge>
 
                         <img
@@ -112,6 +114,46 @@ class ProfilePage extends React.Component {
                             objectFit: "cover",
                           }}
                         />
+                        <strong className="usrnTxt ml-5 h1">
+                          {this.state.users.username}
+                        </strong>
+                        <div className="roletext">{this.state.users.title}</div>
+                      </div>
+                      <div className="w-7/12">
+                        {console.log(Math.floor(this.state.users.xp % 100))}
+                        <ProgressBar
+                          variant="warning"
+                          now={Math.floor(this.state.users.xp % 100)}
+                        />
+                        <div>
+                          <h1>xp points: {this.state.users.xp} </h1>
+
+                          <h5>
+                            {Math.floor(this.state.users.xp % 100)}xp left for
+                            next level
+                          </h5>
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          marginRight: "20px",
+                          outline: "20px solid #8A0000",
+
+                          height: "150px",
+                          width: "150px",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <h1
+                          className="text text-center"
+                          style={{
+                            fontSize: "120px",
+                          }}
+                        >
+                          {this.state.users.level}
+                        </h1>
                       </div>
                     </div>
                     <div classname="ml-5">
@@ -121,58 +163,58 @@ class ProfilePage extends React.Component {
                         ""
                       )}
                     </div>
-                    <Card.Text>
-                      <Row>
-                        <Col xs={12} lg={2}>
-                          <strong className="usrnTxt ml-5 h1">
+                    {/* <Card.Text> */}
+                    <Row>
+                      <Col xs={12} lg={2}>
+                        {/* <strong className="usrnTxt ml-5 h1">
                             {this.state.users.username}
                           </strong>
                           <div className="roletext">
                             {this.state.users.title}
-                          </div>
-                          <h6 className="areaTxt">{this.state.users.area}</h6>
-                        </Col>
-                        <Col lg={6}>
-                          <div className="btnBox">
-                            <Route path="/users/me">
-                              <ProgressBar
-                                variant="warning"
-                                now={this.state.users.xp / 10}
-                              />
-                              <h1>xp points: {this.state.users.xp} </h1>
-                              {/* <EditPage
+                          </div> */}
+                        {/* <h6 className="areaTxt">{this.state.users.area}</h6> */}
+                      </Col>
+                      <Col lg={6}>
+                        <div className="btnBox">
+                          {/* <ProgressBar
+                            variant="warning"
+                            now={this.state.users.xp / 10}
+                          />
+                          <h1>xp points: {this.state.users.xp} </h1> */}
+                          <Route path="/users/me">
+                            {/* <EditPage
                                 users={this.state.users}
                                 refetch={() =>
                                   this.searchProfile(this.props.match.params.id)
                                 }
                                 color="#0A66CE"
                               /> */}
-                            </Route>
-                          </div>
-                        </Col>
-                        <Col>
-                          <div className="d-flex justify-content-end mr-5">
-                            <div
+                          </Route>
+                        </div>
+                      </Col>
+                      <Col>
+                        <div className="d-flex justify-content-end mr-5">
+                          {/* <div
+                            style={{
+                              marginTop: "-130px",
+                              outline: "20px outset #8A0000",
+                              outlineOffset: "25px",
+                              width: "100px",
+                            }}
+                          >
+                            <h1
+                              className="text text-center"
                               style={{
-                                marginTop: "-130px",
-                                outline: "20px outset #8A0000",
-                                outlineOffset: "25px",
-                                width: "100px",
+                                fontSize: "120px",
                               }}
                             >
-                              <h1
-                                className="text text-center"
-                                style={{
-                                  fontSize: "120px",
-                                }}
-                              >
-                                {this.state.users.level}
-                              </h1>
-                            </div>
-                          </div>
-                        </Col>
-                      </Row>
-                    </Card.Text>
+                              {this.state.users.level}
+                            </h1>
+                          </div> */}
+                        </div>
+                      </Col>
+                    </Row>
+                    {/* </Card.Text> */}
                   </Card.Body>
                 </Card>
                 {/* <Bio
@@ -183,13 +225,13 @@ class ProfilePage extends React.Component {
                 <Route path="/users"> {/* <Feature />{" "} */}</Route>
                 {/* <Experience users={this.state.users} /> */}
               </Col>
-              <Col
+              {/* <Col
                 md={4}
                 style={{ marginTop: "10vh" }}
                 className="d-none d-md-block"
               >
-                {/* <Sidebar /> */}
-              </Col>
+                 <Sidebar /> 
+              </Col> */}
             </Row>
           ) : (
             <div></div>
@@ -199,8 +241,9 @@ class ProfilePage extends React.Component {
             //   errMsg: "We have encounter a problem, the users is empty",
             // })
           )}
+          {/* </div> */}
         </div>
-      </div>
+      </Container>
     );
   }
 }

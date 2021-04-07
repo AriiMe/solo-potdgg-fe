@@ -5,6 +5,7 @@ import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
 import "./styles/Home.css";
 import SingleHotPost from "./SingleHotPost";
+import HotPostText from "./HotPostText";
 
 export default class HotPosts extends Component {
   state = {
@@ -98,6 +99,7 @@ export default class HotPosts extends Component {
     return (
       <div className="homeDiv mt-5">
         <Container className="HomeCont" style={{ maxWidth: "5000px" }}>
+          <HotPostText />
           {this.state.err && (
             <Alert variant="danger">{this.state.errMsg}</Alert>
           )}

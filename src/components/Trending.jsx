@@ -5,6 +5,7 @@ import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
 import "./styles/Home.css";
 import SingleTrendingPost from "./SingleTrendingPost";
+import TrendingText from "./TredingText";
 
 export default class Trending extends Component {
   state = {
@@ -71,6 +72,7 @@ export default class Trending extends Component {
     return (
       <div className="homeDiv mt-5">
         <Container className="HomeCont" style={{ maxWidth: "5000px" }}>
+          <TrendingText />
           {this.state.err && (
             <Alert variant="danger">{this.state.errMsg}</Alert>
           )}
