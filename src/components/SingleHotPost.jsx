@@ -104,6 +104,11 @@ export default class SingleHotPost extends React.Component {
     await this.fetchLikes();
     await this.getComments();
   };
+  componentDidUpdate = async (prevProps) => {
+    if (prevProps.me !== this.props.me) {
+      await this.fetchLikes();
+    }
+  };
 
   render() {
     const { post, fetchPost, me } = this.props;

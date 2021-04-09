@@ -96,9 +96,13 @@ export default class SingleTrendingPost extends React.Component {
     }
   };
   componentDidMount = async () => {
-    console.log(this.props.me);
     await this.fetchLikes();
     await this.getComments();
+  };
+  componentDidUpdate = async (prevProps) => {
+    if (prevProps.me !== this.props.me) {
+      await this.fetchLikes();
+    }
   };
 
   render() {

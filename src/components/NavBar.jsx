@@ -55,6 +55,7 @@ class AppNavBar extends React.Component {
         <div className="navbarContent d-flex justify-content-space-between">
           <div className="ml-0 mr-0 d-flex row">
             <Navbar.Brand
+              id="I"
               onClick={() => this.props.history.push("/home")}
               className={`navbarBrand d-flex nowrap mr-${
                 this.state.isMobile ? "0" : "2"
