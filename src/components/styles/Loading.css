@@ -1,12 +1,13 @@
-
+/** @format */
 
 :root {
-  --white:#f1f1f1
+  --white: #f1f1f1;
 }
-.loadingContainer{
-    position: absolute;
-    top: 30%;
-    left: 30%;
+.loadingContainer {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  padding: 200px;
 }
 
 div > span {
@@ -14,22 +15,23 @@ div > span {
 }
 #I {
   opacity: 1;
-  animation: flickerI 2s linear  reverse infinite;
+  animation: flickerI 2s linear reverse infinite;
 }
 #I::after {
-  content: '';
+  content: "";
   width: 150%;
   -webkit-box-shadow: -35px 0px 60px 8px rgb(255, 238, 0);
   -moz-box-shadow: -35px 0px 60px 8px rgb(255, 253, 155);
   box-shadow: -35px 0px 60px 8px rgb(255, 145, 0);
 }
-#L, #G {
+#L,
+#G {
   animation: flickerLG 2s linear reverse infinite;
   position: relative;
 }
-#L::after, 
-#L::before  {
-  content:' ';
+#L::after,
+#L::before {
+  content: " ";
   width: 100px;
   height: 100px;
   background: var(--white);
@@ -49,11 +51,11 @@ div > span {
   filter: blur(10px);
 }
 #H {
-  animation: flickerH 2s linear reverse infinite
+  animation: flickerH 2s linear reverse infinite;
 }
 
 #T {
-  animation: flickerH 2s linear reverse infinite
+  animation: flickerH 2s linear reverse infinite;
 }
 
 @keyframes flickerI {
@@ -220,20 +222,18 @@ div > span {
     opacity: 0.1;
   }
   60% {
-    opacity: 0.;
+    opacity: 0;
   }
   70% {
     opacity: 0.1;
   }
   80% {
-    opacity: 0.;
+    opacity: 0;
   }
   90% {
-    opacity: 0.0;
+    opacity: 0;
   }
   100% {
     opacity: 0.1;
   }
 }
-
-
