@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Container, Row } from "react-bootstrap";
+import Typewriter from "typewriter-effect";
 import "./styles/Loading.css";
 function Loading() {
   return (
@@ -27,6 +28,15 @@ function Loading() {
           !
         </span>
       </Row>
+      <h1>
+        <Typewriter
+          options={{
+            strings: ["Loading..."],
+            autoStart: true,
+            loop: true,
+          }}
+        />
+      </h1>
     </Container>
   );
 }

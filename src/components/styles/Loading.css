@@ -25,7 +25,10 @@
       width: 100%;
     }
   }
-  
+
+#typewriter{
+    color: rgb(255, 145, 0);
+}
 
 div > span {
   opacity: 0.15;
