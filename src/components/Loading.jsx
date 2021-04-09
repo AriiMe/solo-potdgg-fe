@@ -7,23 +7,23 @@ function Loading() {
   return (
     <Container className="loadingContainer">
       <Row className="d-flex justify-content-center  align-items-center text-center">
-        <span style={{ fontSize: "200px", letterSpacing: "3px" }} id="L">
+        <span className="loadingFont" id="L">
           P
         </span>
 
-        <span style={{ fontSize: "200px" }} id="I">
+        <span className="loadingFont" id="I">
           O
         </span>
 
-        <span style={{ fontSize: "200px", letterSpacing: "3px" }} id="G">
+        <span className="loadingFont" id="G">
           T
         </span>
 
-        <span style={{ fontSize: "200px", letterSpacing: "3px" }} id="H">
+        <span className="loadingFont" id="H">
           D
         </span>
 
-        <span style={{ fontSize: "200px", letterSpacing: "3px" }} id="T">
+        <span className="loadingFont" id="T">
           !
         </span>
       </Row>

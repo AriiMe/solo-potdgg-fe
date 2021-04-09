@@ -9,6 +9,23 @@
   text-align: center;
   padding: 200px;
 }
+.loadingFont{
+    font-size: 200px;
+    letter-spacing: 3px;
+}
+@media only screen and (max-width: 768px) {
+    .loadingContainer {
+        margin-top: 50px;
+        width: 100%;
+        text-align: center;
+        padding: 100px;
+      }
+    .loadingFont {
+      font-size: 70px;
+      width: 100%;
+    }
+  }
+  
 
 div > span {
   opacity: 0.15;
