@@ -137,7 +137,7 @@ import {
               <img
                 src={post.user.imgurl}
                 className="postModalImg mr-3"
-                style={{ borderRadius: "100px", width: "50px" }}
+                style={{ borderRadius: "100px", width: "50px", height: "50px" }}
               />
             </a>
             <strong className="ml-2">{post.user.username}</strong>
