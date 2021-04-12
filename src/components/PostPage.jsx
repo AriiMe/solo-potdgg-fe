@@ -72,17 +72,19 @@ function PostPage(props) {
   return (
  
     <Container>
+    <h1 className="text-center">{postData.title}</h1>
       <div id="videoPlayer">
         <video controls interval={null} muted src={postData.imgurl} />
       </div>
       <div id="commentArea" className="mt-5">
+      <p className="text-center">{postData.description}</p>
         <Form onSubmit={(e) => postComment(e)}>
           <Form.Group  controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Leave a Comment</Form.Label>
             <Form.Control
               onChange={(e) => setComment(e.currentTarget.value)}
               as="textarea"
               rows={3}
+              placeholder='Leave a Comment'
               value={comment}
             />
           </Form.Group>
