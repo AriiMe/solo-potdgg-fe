@@ -7,6 +7,13 @@ import { MdReport } from "react-icons/md";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
 
+import {
+  
+  FacebookIcon,
+  RedditIcon,
+  TwitterIcon,
+} from "react-share";
+
 import EditPost from "./EditPost";
 
 class SinglePost extends React.Component {
@@ -178,14 +185,13 @@ class SinglePost extends React.Component {
                 </Button>
               </div>
 
-              <div>
+              <div className="d-flex">
                 {" "}
-                <Button variant="outline-dark mx-1">
-                  <BiShare /> Share
-                </Button>
-                <Button variant="outline-dark mx-1">
-                  <BiSend /> Send
-                </Button>
+               
+                
+                <FacebookIcon size={32} round={true} />
+                <RedditIcon size={32} round={true} />
+                <TwitterIcon size={32} round={true} />
               </div>
             </Col>
           </Row>

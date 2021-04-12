@@ -5,11 +5,18 @@ import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
 import { MdReport } from "react-icons/md";
 import moment from "moment";
-
+import { withRouter } from "react-router-dom";
 import EditPost from "./EditPost";
 
-export default class SingleTrendingPost extends React.Component {
-  state = {
+import {
+  
+  FacebookIcon,
+  RedditIcon,
+  TwitterIcon,
+} from "react-share";
+
+ class SingleTrendingPost extends React.Component {
+ state = {
     likes: [],
     isliked: false,
     comments: [],
@@ -107,7 +114,6 @@ export default class SingleTrendingPost extends React.Component {
 
   render() {
     const { post, fetchPost, me } = this.props;
-    console.log("me", me);
     return (
       <Card
         data-aos="zoom-in-up"
@@ -122,23 +128,31 @@ export default class SingleTrendingPost extends React.Component {
       >
         <Card.Header className="d-flex justify-content-between px-3">
           <div>
-            <a href="/users/:id">
-              <img
-                src={post.user.imgurl}
-                className="postModalImg mr-3"
-                style={{ borderRadius: "100px", width: "50px" }}
-              />
-            </a>
+            <img
+              onClick={() => this.props.history.push("/users/" + post.user.id)}
+              src={post.user.imgurl}
+              className="postModalImg mr-3"
+              style={{ borderRadius: "100px", width: "50px" }}
+            />
             <strong className="ml-2">{post.user.username}</strong>
           </div>
           <h1 className="text-center">{post.title}</h1>
-          {me.id === post.userId && (
-            <EditPost post={post} refetch={() => fetchPost()} me={me} />
-          )}
-          <MdReport style={{ fontSize: "40px" }} />
+          <div className="d-flex align-items-center">
+            {" "}
+            {me.id === post.userId && (
+              <EditPost post={post} refetch={() => fetchPost()} me={me} />
+            )}
+            <MdReport style={{ fontSize: "40px" }} />
+          </div>
         </Card.Header>
         {post.imgurl && (
-          <video controls interval={null} muted src={post.imgurl} />
+          <video
+            loading="lazy"
+            controls
+            interval={null}
+            muted
+            src={post.imgurl}
+          />
         )}
         <span style={{ padding: "10px" }} className="text-muted text-right">
           {moment(post.createdAt).fromNow()}
@@ -148,31 +162,36 @@ export default class SingleTrendingPost extends React.Component {
         </p>
         <Card.Text className="p-3">{post.text}</Card.Text>
 
-        <Card.Footer className="HomeModal bg-white">
-          <Row>
-            <Col xs={6} sm={6} lg={8} xl={10}>
-              <Button
-                variant={
-                  !this.state.isLiked
-                    ? "outline-dark mx-1"
-                    : "outline-warning mx-1"
-                }
-                onClick={() => this.handleLike()}
-              >
-                <BiLike /> Like {this.state.likes}
-              </Button>
-              <Button variant="outline-dark mx-1">
-                <BiCommentDetail /> Comment
-              </Button>
-            </Col>
+        <Card.Footer className="HomeModal">
+          <Row className="d-flex justify-content-between">
+            <Col style={{ display: "flex", justifyContent: "space-between" }}>
+              <div>
+                <Button
+                  variant={
+                    !this.state.isLiked
+                      ? "outline-dark mx-1"
+                      : "outline-warning mx-1"
+                  }
+                  onClick={() => this.handleLike()}
+                >
+                  <BiLike /> Like {this.state.likes}
+                </Button>
+                <Button
+                  variant="outline-dark mx-1"
+                  onClick={() => this.props.history.push("/posts/" + post.id)}
+                >
+                  <BiCommentDetail /> Comment
+                </Button>
+              </div>
 
-            <Col className="mr-1">
-              <Button variant="outline-dark mx-1">
-                <BiShare /> Share
-              </Button>
-              <Button variant="outline-dark mx-1">
-                <BiSend /> Send
-              </Button>
+               <div className="d-flex">
+                {" "}
+               
+                
+                <FacebookIcon size={32} round={true} />
+                <RedditIcon size={32} round={true} />
+                <TwitterIcon size={32} round={true} />
+              </div>
             </Col>
           </Row>
         </Card.Footer>
@@ -180,3 +199,4 @@ export default class SingleTrendingPost extends React.Component {
     );
   }
 }
+export default withRouter(SingleTrendingPost);

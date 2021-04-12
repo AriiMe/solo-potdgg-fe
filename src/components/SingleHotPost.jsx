@@ -5,10 +5,17 @@ import { Container, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
 import { MdReport } from "react-icons/md";
 import moment from "moment";
-
+import { withRouter } from "react-router-dom";
 import EditPost from "./EditPost";
 
-export default class SingleHotPost extends React.Component {
+import {
+  
+  FacebookIcon,
+  RedditIcon,
+  TwitterIcon,
+} from "react-share";
+
+ class SingleHotPost extends React.Component {
   state = {
     likes: [],
     isliked: false,
@@ -169,19 +176,21 @@ export default class SingleHotPost extends React.Component {
                 >
                   <BiLike /> Like {this.state.likes}
                 </Button>
-                <Button variant="outline-dark mx-1">
+                 <Button
+                  variant="outline-dark mx-1"
+                  onClick={() => this.props.history.push("/posts/" + post.id)}
+                >
                   <BiCommentDetail /> Comment
                 </Button>
               </div>
 
-              <div>
+               <div className="d-flex">
                 {" "}
-                <Button variant="outline-dark mx-1">
-                  <BiShare /> Share
-                </Button>
-                <Button variant="outline-dark mx-1">
-                  <BiSend /> Send
-                </Button>
+               
+                
+                <FacebookIcon size={32} round={true} />
+                <RedditIcon size={32} round={true} />
+                <TwitterIcon size={32} round={true} />
               </div>
             </Col>
           </Row>
@@ -190,3 +199,4 @@ export default class SingleHotPost extends React.Component {
     );
   }
 }
+export default withRouter(SingleHotPost);

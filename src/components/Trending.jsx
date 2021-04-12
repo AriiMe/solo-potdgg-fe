@@ -6,8 +6,8 @@ import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
 import "./styles/Home.css";
 import SingleTrendingPost from "./SingleTrendingPost";
 import TrendingText from "./TredingText";
-
-export default class Trending extends Component {
+import { withRouter } from "react-router-dom";
+class Trending extends Component {
   state = {
     posts: [],
     me: {},
@@ -89,13 +89,15 @@ export default class Trending extends Component {
               </Col>
               <Col lg={6} md={9}>
                 {this.state.posts.length > 0 &&
-                  this.state.posts.map((post) => (
-                    <SingleTrendingPost
-                      post={post}
-                      fetchPost={() => this.fetchPost()}
-                      me={this.state.me}
-                    />
-                  ))}
+                  this.state.posts
+                    .sort((a, b) => b.comments.length - a.comments.length)
+                    .map((post) => (
+                      <SingleTrendingPost
+                        post={post}
+                        fetchPost={() => this.fetchPost()}
+                        me={this.state.me}
+                      />
+                    ))}
               </Col>
               <Col className="d-none d-md-block" md={3}>
                 {/* <Sidebar /> */}
@@ -109,3 +111,4 @@ export default class Trending extends Component {
     );
   }
 }
+export default withRouter(Trending);

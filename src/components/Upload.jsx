@@ -7,6 +7,7 @@ import { withRouter } from "react-router-dom";
 import logo from "../logo/potd.gif";
 import monke from "../logo/monke.jpg";
 import { GiVideoCamera } from "react-icons/gi";
+import Typewriter from "typewriter-effect";
 function Upload(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -130,7 +131,13 @@ function Upload(props) {
               Upload
             </button>
           </Form>
-          {processing ? <h1>Processing... please wait</h1> : <></>}
+          {processing ? <h1> <Typewriter
+          options={{
+            strings: ["Processing..."],
+            autoStart: true,
+            loop: true,
+          }}
+        /></h1> : <></>}
           {toolong ? <h1>Video longer than 20 sec</h1> : <></>}
         </div>
       </div>
