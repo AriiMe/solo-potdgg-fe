@@ -176,6 +176,7 @@ class AppNavBar extends React.Component {
                 className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}
                 as={Link}
                 to="/users/me"
+                me={this.state.me}
               >
                 <img
                   style={{

@@ -13,16 +13,23 @@ import {
   Badge,
   ProgressBar,
 } from "react-bootstrap";
-// import Bio from "./BioCard";
+import {
+  faSteam,
+  faTwitch,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { HiEye } from "react-icons/hi";
 // import Experience from "./Experience";
 // import Feature from "./Featured";
 // import Sidebar from "./Sidebar";
 // import EditPage from "./EditPage";
 import "./styles/Profile.css";
 
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 class ProfilePage extends React.Component {
   state = {
+    me: {},
     users: {},
     experiences: [],
     showAlert: null,
@@ -59,7 +66,55 @@ class ProfilePage extends React.Component {
       });
   };
 
+  fetchStalks = async () => {
+    try {
+      const response = await fetch(
+        "https://potd-lol.herokuapp.com/potd/stalk/" + this.state.users.id,
+        {
+          method: "POST",
+          credentials: "include",
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  handleStalks = async () => {
+    try {
+      const result = await fetch(
+        `https://potd-lol.herokuapp.com/potd/stalk/${this.props.me.id}`,
+        {
+          method: "POST",
+          credentials: "include",
+        }
+      );
+      const response = await result.json();
+      console.log(response);
+      await this.fetchStalks();
+    } catch (error) {
+      await this.fetchStalks();
+      console.log(error);
+    }
+  };
+  fetchMe = async () => {
+    try {
+      const meFetch = await fetch(
+        "https://potd-lol.herokuapp.com/potd/users/me",
+        {
+          credentials: "include",
+        }
+      );
+      const meResponse = await meFetch.json();
+      console.log(meResponse);
+      this.setState({ me: meResponse });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   componentDidMount = async () => {
+    this.fetchMe();
     this.props.match.params.id &&
       this.searchProfile(this.props.match.params.id);
   };
@@ -71,8 +126,8 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-      <Container>
-        <div className="d-flex justify-content-center">
+      <Container className="mt-0">
+        <div className="d-flex justify-content-center mt-0">
           {/* <div className="mainBody"> */}
           {this.state.err && (
             <Alert variant="danger">{this.state.errMsg}</Alert>
@@ -217,11 +272,47 @@ class ProfilePage extends React.Component {
                     {/* </Card.Text> */}
                   </Card.Body>
                 </Card>
-                {/* <Bio
-                  bio={this.state.users.bio}
-                  users={this.state.users}
-                  refetch={() => this.searchProfile(this.props.match.params.id)}
-                /> */}
+                <Container>
+                  <Card>
+                    <Card.Body>
+                      <Card.Title>Stalk {this.state.users.username}</Card.Title>
+                      <button
+                        className="followButton"
+                        onClick={() => this.fetchStalks()}
+                      >
+                        <HiEye />
+                        {this.state.users.stalkers.length}
+                      </button>
+                      <faYoutube />
+                      <faTwitch />
+                      <faSteam />
+                      <FontAwesomeIcon
+                        icon={faYoutube}
+                        className="social_icon"
+                        onClick={() =>
+                          window.open("https://youtube.com/AriiMe")
+                        }
+                      />
+                      <FontAwesomeIcon
+                        icon={faTwitch}
+                        className="social_icon"
+                        onClick={() =>
+                          window.open("https://www.twitch.tv/ariimeme")
+                        }
+                      />
+                      <FontAwesomeIcon
+                        icon={faSteam}
+                        className="social_icon"
+                        onClick={() =>
+                          window.open(
+                            "https://steamcommunity.com/id/NaeherinBaer500/"
+                          )
+                        }
+                      />
+                    </Card.Body>
+                  </Card>
+                </Container>
+
                 <Route path="/users"> {/* <Feature />{" "} */}</Route>
                 {/* <Experience users={this.state.users} /> */}
               </Col>
@@ -247,4 +338,4 @@ class ProfilePage extends React.Component {
     );
   }
 }
-export default ProfilePage;
+export default withRouter(ProfilePage);

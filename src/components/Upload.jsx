@@ -82,7 +82,7 @@ function Upload(props) {
         <div class="video-foreground"></div>
       </div>
 
-      <div className="container mx-auto p-52 text-center text-4xl">
+      <div className="container mx-auto p-52 text-center text-4xl mt-0">
         <div className="container mx-auto"></div>
         <div className="max-w-md mx-auto my-10">
           <img src={logo} alt="potd" width="200" className="mx-auto" />
@@ -131,13 +131,20 @@ function Upload(props) {
               Upload
             </button>
           </Form>
-          {processing ? <h1> <Typewriter
-          options={{
-            strings: ["Processing..."],
-            autoStart: true,
-            loop: true,
-          }}
-        /></h1> : <></>}
+          {processing ? (
+            <h1>
+              {" "}
+              <Typewriter
+                options={{
+                  strings: ["Processing..."],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </h1>
+          ) : (
+            <></>
+          )}
           {toolong ? <h1>Video longer than 20 sec</h1> : <></>}
         </div>
       </div>

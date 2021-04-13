@@ -5,7 +5,7 @@ import { Container, Col, Row } from "react-bootstrap";
 function Faq() {
   return (
     <>
-      <Container style={{ marginTop: "20vh" }} className=" mr-auto text-center">
+      <Container className=" mr-auto text-center mt-10">
         <Row style={{ display: "flex", justifyContent: "center" }}>
           <Col xs={8} className="content">
             <h1 style={{ color: "red" }}>What is POTD?</h1>
@@ -28,8 +28,8 @@ function Faq() {
             <h1 style={{ color: "red" }}>How can I contact support?</h1>
             <p style={{ fontSize: "25px" }}>
               Write an email by clicking {""}
-              <a href="mailto:support@potd.lol">Here</a> or fill out our <a href="/contactUs"> contact
-              form </a>
+              <a href="mailto:support@potd.lol">Here</a> or fill out our{" "}
+              <a href="/contactUs"> contact form </a>
             </p>
           </Col>
         </Row>
