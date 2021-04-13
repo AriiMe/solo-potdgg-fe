@@ -274,41 +274,51 @@ class ProfilePage extends React.Component {
                 </Card>
                 <Container>
                   <Card>
-                    <Card.Body>
-                      <Card.Title>Stalk {this.state.users.username}</Card.Title>
-                      <button
-                        className="followButton"
-                        onClick={() => this.fetchStalks()}
-                      >
-                        <HiEye />
-                        {this.state.users.stalkers.length}
-                      </button>
-                      <faYoutube />
-                      <faTwitch />
-                      <faSteam />
-                      <FontAwesomeIcon
-                        icon={faYoutube}
-                        className="social_icon"
-                        onClick={() =>
-                          window.open("https://youtube.com/AriiMe")
-                        }
-                      />
-                      <FontAwesomeIcon
-                        icon={faTwitch}
-                        className="social_icon"
-                        onClick={() =>
-                          window.open("https://www.twitch.tv/ariimeme")
-                        }
-                      />
-                      <FontAwesomeIcon
-                        icon={faSteam}
-                        className="social_icon"
-                        onClick={() =>
-                          window.open(
-                            "https://steamcommunity.com/id/NaeherinBaer500/"
-                          )
-                        }
-                      />
+                    <Card.Body class="text-center">
+                      <Row>
+                        <Col>
+                          <Card.Title>
+                            Stalk {this.state.users.username}
+                          </Card.Title>
+                          <button
+                            className="text-xl"
+                            onClick={() => this.fetchStalks()}
+                          >
+                            <HiEye />
+                            {this.state.users.stalkers.length}
+                          </button>
+                        </Col>
+                        <Col>
+                          {" "}
+                          <FontAwesomeIcon
+                            icon={faYoutube}
+                            className="social_icon mt-4 text-4xl"
+                            onClick={() =>
+                              window.open("https://youtube.com/AriiMe")
+                            }
+                          />
+                        </Col>
+                        <Col>
+                          <FontAwesomeIcon
+                            icon={faTwitch}
+                            className="social_icon mt-4 text-4xl"
+                            onClick={() =>
+                              window.open("https://www.twitch.tv/ariimeme")
+                            }
+                          />
+                        </Col>
+                        <Col>
+                          <FontAwesomeIcon
+                            icon={faSteam}
+                            className="social_icon mt-4 text-4xl"
+                            onClick={() =>
+                              window.open(
+                                "https://steamcommunity.com/id/NaeherinBaer500/"
+                              )
+                            }
+                          />
+                        </Col>
+                      </Row>
                     </Card.Body>
                   </Card>
                 </Container>
