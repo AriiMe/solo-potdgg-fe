@@ -62,12 +62,12 @@ function Register(props) {
   };
   return (
     <>
-      <div className="container mx-auto p-52 text-center text-4xl">
+      <div className="container mx-auto p-52 text-center text-4xl mt-0">
         <div className="container mx-auto"></div>
         <div className="max-w-md mx-auto">
           <img src={logo} alt="potd" width="200" className="mx-auto" />
           <Form onSubmit={signUpFetch} className="m-7">
-            <h1>Upload an image</h1>
+            <h3>Click on monke to upload image</h3>
             <button>
               <input
                 type="file"

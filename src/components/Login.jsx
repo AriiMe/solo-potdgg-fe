@@ -5,6 +5,7 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import Loading from "./Loading";
 import "./styles/Login.css";
+import logo from "../logo/potd.gif";
 export default function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -44,8 +45,7 @@ export default function Login(props) {
           <div class="video-background">
             <div class="video-foreground"></div>
           </div>
-
-          <div className="container flex items-center justify-center h-screen text-4xl">
+          <div className="container flex items-center justify-center h-screen text-4xl mt-0">
             <div className="grid grid-flow-row auto-rows-max md:auto-rows-min">
               <div
                 className="grid grid-flow-col auto-cols-max md:auto-cols-min "
@@ -53,6 +53,7 @@ export default function Login(props) {
               ></div>
             </div>
             <div className="grid grid-flow-row auto-rows-max md:auto-rows-min">
+          <img src={logo} alt="potd" width="200" className="mx-auto" />
               <div
                 className="grid grid-flow-col auto-cols-max md:auto-cols-min"
                 xs={12}

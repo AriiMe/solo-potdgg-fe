@@ -56,7 +56,10 @@ body{
   }
   
   .noacc{
-      color:red;
+      color:rgb(180, 0, 0);
+  }
+  .noacc:hover{
+    color:rgb(255, 0, 0);
   }
   .monkeImg{
       width: 200px;
