@@ -6,13 +6,9 @@ import { BiLike, BiCommentDetail, BiShare, BiSend } from "react-icons/bi";
 import { MdReport } from "react-icons/md";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
-
-import {
-  
-  FacebookIcon,
-  RedditIcon,
-  TwitterIcon,
-} from "react-share";
+import hitmarkersound from "../logo/hitmarkersound.mp3";
+import hitmarker from "../logo/hitmarker.png";
+import { FacebookIcon, RedditIcon, TwitterIcon } from "react-share";
 
 import EditPost from "./EditPost";
 
@@ -22,7 +18,9 @@ class SinglePost extends React.Component {
     isliked: false,
     comments: [],
     errorMessege: false,
+    showHitMarker: false,
   };
+
   getComments = async () => {
     try {
       let response = await fetch(
@@ -43,6 +41,7 @@ class SinglePost extends React.Component {
       this.setState({ errorMessage: true });
     }
   };
+
   handleDelete = async (e) => {
     let id = e.currentTarget.id;
     try {
@@ -113,6 +112,11 @@ class SinglePost extends React.Component {
     }
   };
 
+  start = () => {
+    let audio = new Audio(hitmarkersound);
+    audio.play();
+  };
+
   render() {
     const { post, fetchPost, me } = this.props;
     return (
@@ -167,13 +171,23 @@ class SinglePost extends React.Component {
           <Row className="d-flex justify-content-between">
             <Col style={{ display: "flex", justifyContent: "space-between" }}>
               <div>
+                {this.state.showHitMarker && (
+                  <img id="hitmarker" src={hitmarker} />
+                )}
                 <Button
                   variant={
                     !this.state.isLiked
                       ? "outline-dark mx-1"
                       : "outline-warning mx-1"
                   }
-                  onClick={() => this.handleLike()}
+                  onClick={() => {
+                    this.handleLike();
+                    this.start();
+                    this.setState({ showHitMarker: true });
+                    setTimeout(() => {
+                      this.setState({ showHitMarker: false });
+                    }, 500);
+                  }}
                 >
                   <BiLike /> Like {this.state.likes}
                 </Button>
@@ -187,8 +201,6 @@ class SinglePost extends React.Component {
 
               <div className="d-flex">
                 {" "}
-               
-                
                 <FacebookIcon size={32} round={true} />
                 <RedditIcon size={32} round={true} />
                 <TwitterIcon size={32} round={true} />
