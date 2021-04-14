@@ -163,13 +163,13 @@ class AppNavBar extends React.Component {
                 />
               </Nav.Link>
             </Col>
-            <Col className="navCol ">
+            {/* <Col className="navCol ">
               <Nav.Link
                 className={`navLinkCol ml-${this.state.isMobile ? "0" : "4"}`}
               >
                 <FaBell className="navIcon " />
               </Nav.Link>
-            </Col>
+            </Col> */}
             {/* <div className="vl"></div> */}
             <Col className="navCol">
               <Nav.Link
